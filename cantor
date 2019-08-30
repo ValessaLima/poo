@@ -1,0 +1,122 @@
+
+
+abstract class Cantor{
+  private String nome;
+  private String cpf;
+  public Cantor(String nome, String cpf){
+  this.nome=nome;
+  this.cpf = cpf;
+      
+  }
+  public String getNome(){
+      return this.nome;
+      
+  }
+  public void setNome(String nome){
+     this.nome=nome;
+      
+  }
+  public abstract void cantar();
+  public String toString() {
+      return "Cantor{" + "nome=" + nome + ", cpf=" + cpf + '}';
+      
+  }
+    
+}
+
+class CantorForro extends Cantor {
+    public CantorForro(String nome, String cpf){
+        super(nome, cpf);
+        
+    }
+    public void cantar(){
+        System.out.println("asa branca");
+        
+    }
+    
+}
+
+class CantorRock extends Cantor {
+    public CantorRock(String nome, String cpf){
+        super(nome, cpf);
+        
+    }
+    public void cantar(){
+        System.out.println("incondicional");
+        
+    }
+    
+}
+class CantorSamba extends Cantor {
+    public CantorSamba(String nome, String cpf){
+        super(nome, cpf);
+        
+    }
+    public void cantar(){
+        System.out.println("ta vendo aquela lua");
+        
+    }
+    
+}
+
+class CantorSertanejo extends Cantor {
+    public CantorSertanejo(String nome, String cpf){
+        super(nome, cpf);
+        
+    }
+    public void cantar(){
+        System.out.println("vida boa");
+        
+    }
+    
+}
+
+class FestivalVetor{
+    private Cantor cantores[];
+    private int qtd;
+    public FestivalVetor(){
+        cantores=new Cantor[10];
+        
+    }
+    public boolean addCantor(Cantor cantor){
+        if (cantores.length < qtd){
+            cantores[qtd++]=cantor;
+            return true;
+            
+        }
+        return false;
+        
+    }
+    public void apresentarShow(){
+        quantidade=0
+        for(int i=0; i<cantores.length; i++){
+            cantores[i].cantar(); //Polimorfismo!!!
+            }
+        
+    }
+    public void imprimirCantores(){
+        for(int i=0; i<cantores.length; i++){
+            System.out.println(cantores[i].toString()); //Polimorfismo!!!
+            }
+        
+    }
+    
+}
+
+public class Main{
+    public static void main(String args[]){
+        FestivalVetor festival=new FestivalVetor();
+        Cantor f= new CantorForro("Dominguinhos", "234234");
+        Cantor r= new CantorRock("Oficina G3", "234234");
+        Cantor s=new CantorSertanejo("Leonardo", "234234");
+        Cantor so=new CantorSamba("Thiaguinho", "234234");
+        festival.addCantor(f);
+        festival.addCantor(r);
+        festival.addCantor(s);
+        festival.addCantor(so);
+        festival.imprimirCantores();
+        festival.apresentarShow();
+        
+    }
+    
+}
